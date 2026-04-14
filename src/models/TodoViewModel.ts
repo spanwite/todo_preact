@@ -11,8 +11,10 @@ export interface ITodoViewModel {
   filteredTodos: ReadonlySignal<ITodo[]>;
   infoLabel: ReadonlySignal<string>;
   listLabel: ReadonlySignal<string>;
+  activeTab: Signal<'all' | 'todo' | 'done'>;
   searchQuery: Signal<string>;
   newTodoTitle: Signal<string>;
+
   checkTodo(id: string, isChecked: boolean): void;
   makeTodo(): void;
 }
@@ -22,6 +24,7 @@ export const TodoViewModel = createModel<ITodoViewModel, [ITodoModel]>(
     const { todos } = model;
 
     const newTodoTitle = signal('');
+    const activeTab = signal<'all' | 'todo' | 'done'>('all');
 
     const searchQuery = signal('');
     const cleanedSearchQuery = computed(() => {
@@ -30,6 +33,12 @@ export const TodoViewModel = createModel<ITodoViewModel, [ITodoModel]>(
     });
     const filteredTodos = computed(() => {
       return todos.value.filter((todo) => {
+        if (activeTab.value === 'todo' && todo.completed) {
+          return false;
+        }
+        if (activeTab.value === 'done' && !todo.completed) {
+          return false;
+        }
         const isMatching = todo.title
           .toLowerCase()
           .includes(cleanedSearchQuery.value);
@@ -38,11 +47,11 @@ export const TodoViewModel = createModel<ITodoViewModel, [ITodoModel]>(
     });
 
     const infoLabel = computed(() => {
+      const count = filteredTodos.value.length;
       if (searchQuery.value.trim()) {
-        const count = filteredTodos.value.length;
         return `Найдено задач: ${count}`;
       }
-      return `Количество задач: ${todos.value.length}`;
+      return `Количество задач: ${count}`;
     });
 
     const listLabel = computed(() => {
@@ -59,6 +68,7 @@ export const TodoViewModel = createModel<ITodoViewModel, [ITodoModel]>(
 
     return {
       searchQuery,
+      activeTab,
       newTodoTitle,
       filteredTodos,
       checkTodo(id: string, isChecked: boolean) {

@@ -1,1 +1,1 @@
-export { isSignal } from './isSignal';
+export { isSignal, unpackSignal } from './signals';

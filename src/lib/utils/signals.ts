@@ -9,3 +9,7 @@ export function isSignal<T>(value: Signalish<T>): value is SignalLike<T> {
     'value' in value
   );
 }
+
+export function unpackSignal<T>(value: Signalish<T>): T {
+  return isSignal(value) ? value.value : value;
+}
