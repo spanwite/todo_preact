@@ -1,0 +1,1 @@
+export { isSignal } from './isSignal';

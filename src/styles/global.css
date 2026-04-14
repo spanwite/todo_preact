@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-background: theme('colors.white');
+  --color-muted-background: theme('colors.neutral.100');
+  --color-surface: theme('colors.white');
+  --color-border: theme('colors.gray.300');
+  --color-ring: theme('colors.neutral.400');
+  --color-primary: theme('colors.neutral.900');
+  --color-primary-foreground: theme('colors.white');
+  --color-muted-foreground: theme('colors.gray.500');
+  --color-destructive: theme('colors.red.600');
+}
+
+body {
+  background-color: var(--color-background);
+}
