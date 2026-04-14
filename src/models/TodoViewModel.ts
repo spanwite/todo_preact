@@ -61,9 +61,17 @@ export const TodoViewModel = createModel<ITodoViewModel, [ITodoModel]>(
       }
       if (cleanedSearchQuery.value) {
         return `По запросу "${cleanedSearchQuery.value}" ничего не найдено...`;
-      } else {
-        return 'В списке дел пусто... Добавьте новую задачу! ';
       }
+      if (activeTab.value === 'todo') {
+        if (todos.value.length > 0) {
+          return 'Все задачи выполнены!';
+        }
+        return 'Активных задач нет...';
+      }
+      if (activeTab.value === 'done') {
+        return 'Выполненных задач нет...';
+      }
+      return 'В списке нет задач... Добавьте первую!';
     });
 
     return {
