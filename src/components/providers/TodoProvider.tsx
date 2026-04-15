@@ -20,7 +20,6 @@ export function TodoProvider({
   useSignalEffect(() => {
     const todos = value.model.todos.value;
     value.storage.save(todos);
-    console.log(`Saved ${todos.length} todos to localStorage.`);
   });
 
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
