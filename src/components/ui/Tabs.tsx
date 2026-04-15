@@ -65,14 +65,29 @@ export function TabsTrigger({
     <button
       type='button'
       role='tab'
+      data-value={value}
       aria-selected={isActive.value}
+      tabIndex={isActive.value ? 0 : -1}
       className={cn(
-        'text-muted-foreground h-7 cursor-pointer rounded-lg px-2.5 text-sm font-medium transition-colors',
+        'text-muted-foreground h-7 cursor-pointer rounded-lg border-2 border-transparent px-2.5 text-sm font-medium transition-colors outline-none',
         'hover:text-primary',
+        'focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:ring-2',
         isActive.value && 'text-primary bg-background shadow',
         unpackSignal(className)
       )}
       onClick={() => (activeTab.value = value)}
+      onKeyDown={(e) => {
+        const element = {
+          ArrowLeft: e.currentTarget
+            .previousElementSibling as HTMLElement | null,
+          ArrowRight: e.currentTarget.nextElementSibling as HTMLElement | null,
+        }[e.key];
+        if (element && element.dataset.value) {
+          e.preventDefault();
+          activeTab.value = element.dataset.value;
+          element.focus();
+        }
+      }}
       {...props}
     />
   );
