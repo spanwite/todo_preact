@@ -25,6 +25,12 @@ function getSystemTheme(): Theme {
   return darkSchemeMediaQuery.matches ? 'dark' : 'light';
 }
 
+function applyTheme(theme: Theme) {
+  const root = window.document.documentElement;
+  root.classList.remove('dark', 'light');
+  root.classList.add(theme);
+}
+
 export function ThemeProvider({
   children,
   defaultTheme = 'auto',
@@ -35,9 +41,7 @@ export function ThemeProvider({
   storageKey?: string;
 }) {
   const themePref = useSignal<ThemePreference>(
-    defaultTheme ||
-      (localStorage.getItem(storageKey) as Theme) ||
-      getSystemTheme()
+    (localStorage.getItem(storageKey) as Theme) || defaultTheme
   );
   const systemTheme = signal<Theme>(getSystemTheme());
   const theme = useComputed<Theme>(() => {
@@ -58,14 +62,7 @@ export function ThemeProvider({
   }, []);
 
   useSignalEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove('dark', 'light');
-
-    if (themePref.value === 'auto') {
-      root.classList.add(systemTheme.value);
-    } else {
-      root.classList.add(themePref.value);
-    }
+    applyTheme(theme.value);
   });
 
   const toggle = () => {
