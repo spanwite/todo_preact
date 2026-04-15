@@ -1,7 +1,7 @@
 import { Content } from './components/layouts/Content';
 import { Header } from './components/layouts/Header';
 import Todo from './components/Todo';
-import { ThemeProvider } from './providers/ThemeProvider';
+import { ThemeProvider } from './components/providers/ThemeProvider';
 
 export default function App() {
   return (

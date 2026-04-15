@@ -1,6 +1,6 @@
 import { cn } from '@/lib/helpers';
 import { isSignal } from '@/lib/utils';
-import { TodoProvider } from '@/providers/TodoProvider';
+import { TodoProvider } from '@/components/providers/TodoProvider';
 import type { ComponentProps } from 'preact';
 
 export function TodoRoot({ className, ...props }: ComponentProps<'div'>) {

@@ -1,4 +1,4 @@
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/components/providers/ThemeProvider';
 import { Button } from './ui/Button';
 import { Moon, Sun } from 'lucide-preact';
 
