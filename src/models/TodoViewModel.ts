@@ -51,6 +51,12 @@ export const TodoViewModel = createModel<ITodoViewModel, [ITodoModel]>(
       if (searchQuery.value.trim()) {
         return `Найдено задач: ${count}`;
       }
+      if (activeTab.value === 'todo') {
+        return `Активных задач: ${count}`;
+      }
+      if (activeTab.value === 'done') {
+        return `Выполненных задач: ${count}`;
+      }
       return `Всего задач: ${count}`;
     });
 
@@ -60,7 +66,7 @@ export const TodoViewModel = createModel<ITodoViewModel, [ITodoModel]>(
         return '';
       }
       if (cleanedSearchQuery.value) {
-        return `По запросу "${cleanedSearchQuery.value}" ничего не найдено...`;
+        return `Задачи с названием "${cleanedSearchQuery.value}" не найдены...`;
       }
       if (activeTab.value === 'todo') {
         if (todos.value.length > 0) {
