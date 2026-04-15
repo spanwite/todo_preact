@@ -39,8 +39,8 @@ export function TodoItem({
           {title}
         </Label>
       </Field>
-      <Button onClick={onRemove} variant='ghost'>
-        <Trash size={18} />
+      <Button onClick={onRemove} variant='ghost' size='icon'>
+        <Trash className='size-4.5' />
       </Button>
     </li>
   );

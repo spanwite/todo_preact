@@ -1,14 +1,20 @@
+import { Content } from './components/layouts/Content';
+import { Header } from './components/layouts/Header';
 import Todo from './components/Todo';
+import { ThemeProvider } from './providers/ThemeProvider';
 
 export default function App() {
   return (
-    <div className='container mx-auto p-2'>
-      <Todo.Root>
-        <Todo.AddForm />
-        <Todo.SearchForm />
-        <Todo.Info />
-        <Todo.List />
-      </Todo.Root>
-    </div>
+    <ThemeProvider>
+      <Content>
+        <Header />
+        <Todo.Root>
+          <Todo.AddForm />
+          <Todo.SearchForm />
+          <Todo.Info />
+          <Todo.List />
+        </Todo.Root>
+      </Content>
+    </ThemeProvider>
   );
 }

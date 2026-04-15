@@ -14,6 +14,7 @@ export const Input = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
           'placeholder:text-muted-foreground placeholder:text-sm',
           'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-3',
           'aria-invalid:border-destructive aria-invalid:ring-destructive/20 aria-invalid:ring-3',
+          'dark:bg-muted',
           classValue
         )}
         ref={ref}

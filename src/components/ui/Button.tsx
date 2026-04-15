@@ -13,10 +13,13 @@ const buttonVariants = cva(
         outline:
           'bg-background border-border not-disabled:hover:bg-muted-background not-disabled:hover:text-foreground',
         ghost:
-          'border-transparent bg-background not-disabled:hover:bg-muted-background not-disabled:hover:text-foreground',
+          'border-transparent bg-transparent not-disabled:hover:bg-muted-background not-disabled:hover:text-foreground',
       },
       size: {
         default: 'h-8 gap-1 px-2.5',
+        icon: "size-8 [&_svg:not([class*='size-'])]:size-7",
+        'icon-sm': "size-7 rounded-md [&_svg:not([class*='size-'])]:size-4.5",
+        'icon-xs': "size-6 rounded-md [&_svg:not([class*='size-'])]:size-5",
       },
     },
     defaultVariants: {
@@ -29,13 +32,14 @@ const buttonVariants = cva(
 function Button({
   className,
   variant = 'default',
+  size = 'default',
   ...props
 }: ComponentProps<'button'> & VariantProps<typeof buttonVariants>) {
   return (
     <button
       {...props}
       className={cn(
-        buttonVariants({ variant }),
+        buttonVariants({ variant, size }),
         isSignal(className) ? className.value : className
       )}
     />

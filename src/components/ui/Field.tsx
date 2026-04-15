@@ -5,7 +5,7 @@ import type { ComponentProps } from 'preact';
 import { useMemo } from 'preact/hooks';
 
 const fieldVariants = cva(
-  'flex w-full gap-2 data-[invalid=true]:text-destructive',
+  'flex w-full gap-2.5 data-[invalid=true]:text-destructive',
   {
     variants: {
       orientation: {

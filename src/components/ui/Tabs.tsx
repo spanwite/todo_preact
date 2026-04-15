@@ -44,10 +44,7 @@ export function TabsList({ className, ...props }: ComponentProps<'div'>) {
   return (
     <div
       role='tablist'
-      className={cn(
-        'bg-muted-background flex rounded-lg p-0.75',
-        unpackSignal(className)
-      )}
+      className={cn('bg-muted flex rounded-lg p-0.75', unpackSignal(className))}
       {...props}
     />
   );
@@ -69,10 +66,11 @@ export function TabsTrigger({
       aria-selected={isActive.value}
       tabIndex={isActive.value ? 0 : -1}
       className={cn(
-        'text-muted-foreground h-7 cursor-pointer rounded-lg border-2 border-transparent px-2.5 text-sm font-medium transition-colors outline-none',
+        'text-muted-foreground h-7 cursor-pointer rounded-lg border-2 border-transparent px-2.5 text-sm font-medium transition-colors outline-none dark:border',
         'hover:text-primary',
-        'focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:ring-2',
-        isActive.value && 'text-primary bg-background shadow',
+        'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring focus-visible:ring-2 focus-visible:outline-1',
+        isActive.value &&
+          'text-primary bg-background dark:bg-border/30 dark:border-border shadow',
         unpackSignal(className)
       )}
       onClick={() => (activeTab.value = value)}

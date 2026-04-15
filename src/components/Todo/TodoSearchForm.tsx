@@ -5,6 +5,7 @@ import { Field } from '../ui/Field';
 import { Input } from '../ui/Input';
 import Label from '../ui/Label';
 import { cn } from '@/lib/helpers';
+import { Button } from '../ui/Button';
 
 export function TodoSearchForm() {
   const {
@@ -27,17 +28,21 @@ export function TodoSearchForm() {
             onInput={(e) => (searchQuery.value = e.currentTarget.value)}
             placeholder='Покормить собаку...'
           />
-          <button
+          <Button
             type='button'
             onClick={() => (searchQuery.value = '')}
+            tabIndex={searchQuery.value ? 0 : -1}
+            variant='ghost'
+            size='icon-xs'
             className={cn(
-              'pointer-events-none absolute top-1/2 right-2.5 -translate-y-1/2 cursor-pointer rounded-sm p-0.5 text-transparent transition-colors',
-              'hover:bg-muted-background',
-              'peer-not-placeholder-shown:text-muted-foreground peer-not-placeholder-shown:pointer-events-auto'
+              'absolute top-1/2 right-2.5 -translate-y-1/2 text-transparent',
+              searchQuery.value
+                ? 'text-muted-foreground'
+                : 'pointer-events-none'
             )}
           >
-            <X />
-          </button>
+            <X className='size-4.5' />
+          </Button>
         </div>
       </Field>
     </form>
