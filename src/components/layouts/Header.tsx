@@ -13,7 +13,7 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
       {...props}
     >
       <h1 className='font-serif text-4xl font-medium whitespace-nowrap italic'>
-        To Do List
+        To-Do List
       </h1>
       <ThemeToggler />
     </header>
