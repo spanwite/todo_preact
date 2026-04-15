@@ -51,7 +51,7 @@ export const TodoViewModel = createModel<ITodoViewModel, [ITodoModel]>(
       if (searchQuery.value.trim()) {
         return `Найдено задач: ${count}`;
       }
-      return `Количество задач: ${count}`;
+      return `Всего задач: ${count}`;
     });
 
     const listLabel = computed(() => {

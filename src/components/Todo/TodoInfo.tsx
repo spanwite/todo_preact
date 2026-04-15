@@ -6,7 +6,7 @@ export function TodoInfo() {
   const { infoLabel, activeTab } = viewModel;
 
   return (
-    <div className={'flex items-center justify-between gap-2'}>
+    <div className='flex items-center justify-between gap-2'>
       <Tabs activeTab={activeTab}>
         <TabsList className='max-[28rem]:flex-col'>
           <TabsTrigger value='all'>Все</TabsTrigger>

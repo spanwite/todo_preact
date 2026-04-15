@@ -21,7 +21,7 @@ export function TodoItem({
 
   return (
     <li className='bg-surface border-border flex h-10 items-center justify-between rounded-lg border px-3'>
-      <Field orientation='horizontal'>
+      <Field orientation='horizontal' className='overflow-hidden'>
         <Checkbox
           id={titleId}
           checked={isChecked}
@@ -32,14 +32,19 @@ export function TodoItem({
         <Label
           htmlFor={titleId}
           className={cn(
-            'cursor-pointer',
+            'cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap',
             isChecked && 'text-muted-foreground line-through'
           )}
         >
           {title}
         </Label>
       </Field>
-      <Button onClick={onRemove} variant='ghost' size='icon'>
+      <Button
+        onClick={onRemove}
+        variant='ghost'
+        size='icon'
+        title='Удалить задачу'
+      >
         <Trash className='size-4.5' />
       </Button>
     </li>

@@ -8,7 +8,7 @@ export function TodoRoot({ className, ...props }: ComponentProps<'div'>) {
     <TodoProvider>
       <div
         className={cn(
-          'mx-auto flex max-w-2xl flex-col gap-5',
+          'mx-auto flex flex-col gap-5',
           isSignal(className) ? className.value : className
         )}
         {...props}

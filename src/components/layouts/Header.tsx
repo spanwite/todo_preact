@@ -1,17 +1,21 @@
-import { Moon, Sun } from 'lucide-preact';
-import { Button } from '../ui/Button';
-import { useTheme } from '@/contexts/ThemeContext';
+import { cn } from '@/lib/helpers';
+import { unpackSignal } from '@/lib/utils';
+import type { ComponentProps } from 'preact';
+import ThemeToggle from '../ThemeToggle';
 
-export function Header() {
-  const { theme, toggle } = useTheme();
-  const isLight = theme.value === 'light';
-
+export function Header({ className, ...props }: ComponentProps<'header'>) {
   return (
-    <header className='mb-6 flex items-center justify-center gap-4'>
-      <h1 className='font-serif text-4xl font-medium italic'>To Do List</h1>
-      <Button size='icon-sm' onClick={toggle}>
-        {isLight ? <Moon /> : <Sun />}
-      </Button>
+    <header
+      className={cn(
+        'mx-auto flex flex-wrap items-center justify-center gap-4 sm:justify-between',
+        unpackSignal(className)
+      )}
+      {...props}
+    >
+      <h1 className='font-serif text-4xl font-medium whitespace-nowrap italic'>
+        To Do List
+      </h1>
+      <ThemeToggle />
     </header>
   );
 }

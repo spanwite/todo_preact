@@ -60,8 +60,13 @@ export function TodoAddForm() {
           errors={titleFieldErrors.value}
         />
       </Field>
-      <Button type='submit' disabled={newTodoTitle.value.trim().length === 0}>
-        <Plus size={18} /> Добавить
+      <Button
+        type='submit'
+        disabled={newTodoTitle.value.trim().length === 0}
+        title='Добавить задачу'
+      >
+        <Plus size={18} />
+        <span className='max-sm:hidden'>Добавить</span>
       </Button>
     </form>
   );

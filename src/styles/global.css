@@ -18,6 +18,8 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-destructive: var(--destructive);
 
+  --breakpoint-sm: 26.5625rem;
+
   --font-serif:
     'Fraunces', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 }

@@ -7,7 +7,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <Content>
-        <Header />
+        <Header className='mt-3 mb-5' />
         <Todo.Root>
           <Todo.AddForm />
           <Todo.SearchForm />
