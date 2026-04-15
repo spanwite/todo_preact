@@ -1,11 +1,10 @@
 import {
-  effect,
   signal,
   useComputed,
   useSignal,
   useSignalEffect,
 } from '@preact/signals';
-import { useEffect, useMemo } from 'preact/hooks';
+import { useEffect } from 'preact/hooks';
 import type { Signal } from '@preact/signals';
 import { createContext } from 'preact';
 import { useContext } from 'preact/hooks';

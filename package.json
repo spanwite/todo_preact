@@ -11,15 +11,14 @@
   },
   "dependencies": {
     "@preact/signals": "^2.9.0",
-    "@tailwindcss/vite": "^4.2.2",
     "class-variance-authority": "^0.7.1",
     "lucide-preact": "^1.8.0",
-    "preact": "^10.29.1",
-    "tailwindcss": "^4.2.2"
+    "preact": "^10.29.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@preact/preset-vite": "^2.10.5",
+    "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^24.12.2",
     "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
@@ -29,6 +28,7 @@
     "prettier": "^3.8.2",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.2",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.1",
     "vite": "^8.0.4"

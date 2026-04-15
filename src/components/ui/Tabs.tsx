@@ -1,12 +1,6 @@
 import { cn } from '@/lib/helpers';
 import { unpackSignal } from '@/lib/utils';
-import {
-  signal,
-  useComputed,
-  useSignal,
-  useSignalEffect,
-  type Signal,
-} from '@preact/signals';
+import { signal, useComputed, type Signal } from '@preact/signals';
 import { createContext, type ComponentProps } from 'preact';
 import { useContext, useMemo } from 'preact/hooks';
 
