@@ -9,12 +9,13 @@ export default function ThemeToggle() {
   return (
     <Button
       onClick={toggle}
+      variant='outline'
       size='sm'
       title={`Сменить тему на ${isLight ? 'тёмную' : 'светлую'}`}
     >
       {isLight ? <Moon /> : <Sun />}
       <span className='max-sm:hidden'>
-        {isLight ? 'Тёмная' : 'Светлая'} тема
+        Включить {isLight ? 'тёмную' : 'светлую'} тему
       </span>
     </Button>
   );

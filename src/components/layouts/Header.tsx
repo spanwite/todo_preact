@@ -1,7 +1,7 @@
 import { cn } from '@/lib/helpers';
 import { unpackSignal } from '@/lib/utils';
 import type { ComponentProps } from 'preact';
-import ThemeToggle from '../ThemeToggle';
+import ThemeToggler from '../ThemeToggler';
 
 export function Header({ className, ...props }: ComponentProps<'header'>) {
   return (
@@ -15,7 +15,7 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
       <h1 className='font-serif text-4xl font-medium whitespace-nowrap italic'>
         To Do List
       </h1>
-      <ThemeToggle />
+      <ThemeToggler />
     </header>
   );
 }
